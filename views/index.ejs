@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title><%= title %></title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h1>Üdvözöljük <%= username %> a kezdőoldalon!</h1>
+    <p><u>Elérhető számok listája:</u></p>
+    <table>
+        <thead>
+            <th style="padding-right: 150px">Előadó</th>
+            <th style="padding-right: 150px">Szám címe</th>
+            <th style="padding-right: 150px">Hossza(mp)</th>
+        </thead>
+        <tbody>
+            <% index.forEach( item => { %>
+                <tr>
+                    <td><%= item.artist %></td>
+                    <td><%= item.title %></td>
+                    <td><%= item.length %> mp</td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <div>
+        <% if (loggedin) { %>
+            <a href="/form" style="padding-right: 10px; background-color: #05fff2;
+            border: none;
+            color: black;">Új szám hozzáadása</a>
+            <a href="/logout" style="background-color: #05fff2;
+            border: none;
+            color: black;">Kijelentkezés</a>
+        <% } else { %>
+            <a href="/register" style="padding-right: 10px; background-color: #05fff2;
+            border: none;
+            color: black;">Regisztráció</a>
+            <a href="/login" style="background-color: #05fff2;
+            border: none;
+            color: black;">Bejelentkezés</a>
+        <% } %>
+    </div>
+</body>
+</html>
